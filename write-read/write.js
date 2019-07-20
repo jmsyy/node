@@ -44,6 +44,7 @@ function writeStream(fsPath=filePath,code=codeString) {
     })
     writeStream.write(code);
     writeStream.end();
+    
 }
 
 module.exports= {
