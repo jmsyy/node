@@ -1,0 +1,15 @@
+mage: node
+# 定义 stages
+stages:
+  - build
+  - test
+# 定义 job
+ build 阶段:
+  stage: build
+  script:
+    - echo "build stage"
+# 定义 job
+发布到测试环境:
+  stage: test
+  script:
+    - echo "test stage"
