@@ -16,7 +16,7 @@ function reqMethod(req,res) {
             break;
         case 'GET':
         default:
-            get(req,res);
+            // get(req,res);
     }
 }
 function get(req,res) {
