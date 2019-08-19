@@ -13,4 +13,4 @@ TCP.on('connection',(socket) => {
     })
     socket.write(`欢迎光临《深入浅出Node.js》示例：\n`);
 })
-TCP.listen('/tmp/echo.sock');
+TCP.listen('8090');

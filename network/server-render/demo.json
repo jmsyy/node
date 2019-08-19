@@ -1,5 +1,7 @@
-[
-    "Million tonne punch",
-    "Damage resistance",
-    "Superhuman reflexes"
-]
+{
+    "demo":[
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes"
+    ]
+}
