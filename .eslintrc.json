@@ -21,6 +21,7 @@
     ],
     "rules": {
         "linebreak-style": ["error", "windows"],
+        "no-restricted-syntax": ["error", "WithStatement"],
         "no-console":["error",{"allow":["log","error"]}],
         "no-use-before-define": ["error", { "functions": false }]
     }
