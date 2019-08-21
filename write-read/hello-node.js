@@ -1,1 +1,1 @@
-console.log('node writeFileSync')
+console.log('node writeFileSync');
