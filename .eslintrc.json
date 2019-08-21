@@ -24,6 +24,7 @@
         "no-restricted-syntax": ["error", "WithStatement"],
         "no-console":["error",{"allow":["log","error"]}],
         "no-use-before-define": ["error", { "functions": false }],
-        "eol-last": ["error", "never"]
+        "eol-last": ["error", "never"],
+        "treatUndefinedAsUnspecified": 0
     }
 }
