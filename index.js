@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const readArticle = require('node-readability');
-const { Article } = require('./models/db');
+const path = require('path');
+const Article = require('./models/db');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use('/css/bootstrap.css', express.static('node_modules/bootstrap/dist/css/bootstrap.css'));
 app.set('port', process.env.PORT || 8080);
 
 app.get('/articles', (req, res, next) => {
@@ -14,7 +15,14 @@ app.get('/articles', (req, res, next) => {
     if (error) {
       return next(error);
     }
-    res.send(articles);
+    res.format({
+      html: () => {
+        res.render(path.resolve(__dirname, 'views/template.ejs'), { articles });
+      },
+      json: () => {
+        res.send(articles);
+      },
+    });
   });
 });
 

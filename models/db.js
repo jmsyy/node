@@ -27,4 +27,4 @@ class Article {
   }
 }
 module.exports = db;
-module.exports.Article = Article;
+module.exports = Article;
