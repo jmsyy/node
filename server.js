@@ -17,7 +17,8 @@ app.get('/articles', (req, res, next) => {
     }
     res.format({
       html: () => {
-        res.render(path.resolve(__dirname, 'views/template.ejs'), { articles });
+        // res.render(path.resolve(__dirname, 'views/template.ejs'), { articles });
+        res.render(path.resolve(__dirname, 'views/lit-html.js'), { articles });
       },
       json: () => {
         res.send(articles);
@@ -53,7 +54,7 @@ app.post('/articles', (req, res, next) => {
   });
 });
 
-app.delete('/articles/:id', (req, res) => {
+app.delete('/articles/:id', (req, res, next) => {
   const { id } = req.params;
   Article.delete(id, (error) => {
     if (error) {
