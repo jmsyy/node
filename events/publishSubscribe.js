@@ -44,3 +44,5 @@ const server  = net.createServer( client => {
 });
 
 server.listen(8888);
+
+console.log(`server is running `)
