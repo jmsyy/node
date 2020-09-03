@@ -8,7 +8,7 @@
     "eslint": "eslint --fix index.js",
     "preeslint": "npm info webpack",
     "posteslint": "echo \"excuse done\" ",
-    "start": "",
+    "start": "node ./web-server/index.js",
     "update": "npm update $npm_package_dependencies"
   },
   "keywords": [],
