@@ -15,6 +15,9 @@ const api = require('./routes/api');
 const validate = require('./middleware/validate')
 const message = require('./middleware/message')
 const user = require('./middleware/user')
+const page = require('./middleware/page')
+
+const Entry = require('./models/entry');
 
 var app = express();
 
@@ -35,6 +38,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 app.use(user);
+app.use(page);
 app.use(message);
 
 app.use('/api', api.auth);
@@ -58,8 +62,8 @@ app.post('/login', login.submit);
 app.get('/logout', login.logout);
 
 app.get('/api/user/:id', api.user);
-app.get('/api/entries/:page?', api.entries);
-app.post('/api/entry', api.add);
+app.get('/api/entries/:page?', page(Entry.count), api.entries);
+app.post('/api/entry', entries.submit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

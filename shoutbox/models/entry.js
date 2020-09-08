@@ -3,7 +3,7 @@ const db = redis.createClient();
 
 class Entry {
   constructor(obj) {
-    for (const key in object) {
+    for (const key in obj) {
       if (obj.hasOwnProperty()) {
         this[key] = obj[key]
       }

@@ -1,6 +1,7 @@
 const auth = require('basic-auth');
 const express = require('express');
 const User = require('../models/user');
+const Entry = require('../models/entry');
 
 exports.auth = (req, res, next) =>{
   const  {name , pass} = auth(req);
@@ -20,6 +21,10 @@ exports.user = (req, res, next) =>{
   });
 }
 
-// exports.entries = (req, res, next) => {
-
-// }
+exports.entries = (req, res, next) => {
+  const page = req.page;
+  Entry.getRange(page.from, page.to, (err, entries) => {
+    if(err){ return next(err)}
+    res.json(entries)
+  });
+}
