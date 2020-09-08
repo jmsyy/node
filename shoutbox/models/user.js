@@ -8,6 +8,35 @@ class User {
         this[key] = obj[key];        
     }
   }
+  
+  static authenticate(name, pass, cb){
+    User.getByName(name, (err, user) =>{
+      if(err || !user.id){return cb(err)}
+      bcrypt.hash(pass, user.salt, (err, hash) =>{
+        if(err){ return cb(err) }
+        if(hash == user.pass) { return cb(null, user)}
+        cb()
+      });
+    });
+  }
+
+  static getByName(name, cb) {
+    User.getId(name, (err, id) => {
+      if(err){return cb(err)}
+      User.get(id, cb)
+    });
+  }
+
+  static getId(name, cb) {
+    db.get(`user:id:${name}`, cb);
+  }
+
+  static get(id, cb) {
+    db.hgetall(`user:${id}`, (err, user) => {
+      if(err){return  cb(err)}
+      cb(null, new User(user));
+    });
+  }
 
   save(cb){
     if (this.id) {
@@ -17,10 +46,10 @@ class User {
         if(err){return cb(err)}
         this.id = id;
         this.update(cb)
-        // this.hasPassword((err) => {
-        //   if(err){return cb(err)}
-        //   this.update(cb)
-        // })
+        this.hasPassword((err) => {
+          if(err){return cb(err)}
+          this.update(cb)
+        })
       })
     }
   }
