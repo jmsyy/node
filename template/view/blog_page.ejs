@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      .entry-title {font-weight: bold;}
+      .entry-date { font-style: italic;}
+      .entry-body { color: burlywood;}
+    </style>
+  </head>
+  <body>
+    <% entries.map(entry => { %>
+      <div class="entry-title"> <%= entry.title %> </div>
+      <div class="entry-date"> <%= entry.date %> </div>
+      <div class="entry-body"> <%= entry.body %> </div>
+    <% })%>
+  </body>
+</html>

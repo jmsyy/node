@@ -38,7 +38,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 app.use(user);
-app.use(page);
+// app.use(page);
 app.use(message);
 
 app.use('/api', api.auth);
@@ -61,9 +61,9 @@ app.get('/login', login.form);
 app.post('/login', login.submit);
 app.get('/logout', login.logout);
 
-app.get('/api/user/:id', api.user);
-app.get('/api/entries/:page?', page(Entry.count), api.entries);
-app.post('/api/entry', entries.submit);
+// app.get('/api/user/:id', api.user);
+// app.get('/api/entries/:page?', page(Entry.count), api.entries);
+// app.post('/api/entry', entries.submit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
