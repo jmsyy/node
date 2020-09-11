@@ -29,6 +29,7 @@
     "express": "^4.17.1",
     "hogan.js": "^3.0.2",
     "htmlparser": "^1.7.7",
+    "knex": "^0.21.5",
     "koa": "^2.13.0",
     "lit-html": "^1.1.2",
     "node-readability": "^3.0.0",
@@ -37,7 +38,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "request": "^2.88.2",
-    "sqlite3": "^4.1.0",
+    "sqlite3": "^4.2.0",
     "superagent": "^5.1.0"
   },
   "devDependencies": {
